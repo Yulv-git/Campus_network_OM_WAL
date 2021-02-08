@@ -3,6 +3,7 @@
 '''
 Author: Shuangchi He / Yulv
 Email: yulvchi@qq.com
+github: https://github.com/Yulv-git
 Date: 2021-02-08 11:36:34
 Description: 深大校园网  在线监测 & 网页版自动登录
 1、修改用户名和密码，即可运行该脚本；
