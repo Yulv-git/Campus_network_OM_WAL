@@ -30,7 +30,7 @@ def Online_or_not(test_web="https://www.baidu.com"):
         return False
 
 
-def Web_Login(name=None, password=None):
+def Web_Login(Web_URL=None, name=None, password=None):
     if not Online_or_not(test_web="https://www.baidu.com"):
         data = {"DDDDD":name, "upass":password, "R1":0, "R6":0, "para":00, "0MKKey":123456}
         try:
@@ -43,5 +43,4 @@ def Web_Login(name=None, password=None):
 	print("【Login】{} 网络连接正常, 无需再次登录~\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
 
 
-Web_URL = "https://drcom.szu.edu.cn/a70.htm"
-Web_Login(name=ahhhh , password='23333')
+Web_Login(Web_URL="https://drcom.szu.edu.cn/a70.htm", name=ahhhh , password='23333')
