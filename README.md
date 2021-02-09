@@ -1,4 +1,5 @@
 # Campus_network_OM_WAL
 Campus network online monitoring and web version automatic login.
 
-* [Windows创建定时任务执行Python脚本](https://blog.csdn.net/u012849872/article/details/82719372)
+* [SZU校园网，在线监测与自动登录](./Online_Login_Web.py)
+* [Windows定时任务，运行Python脚本](https://blog.csdn.net/qq_37828488/article/details/100049421)
