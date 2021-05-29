@@ -5,9 +5,13 @@ Author: Shuangchi He / Yulv
 Email: yulvchi@qq.com
 github: https://github.com/Yulv-git
 Date: 2021-02-08 11:36:34
+Motto: Entities should not be multiplied unnecessarily.
+LastEditors: Shuangchi He
+LastEditTime: 2021-05-29 12:24:44
+FilePath: /Campus_network_OM_WAL/Online_Login_Web.py
 Description: 深大校园网  在线监测 & 网页版自动登录
 1、修改用户名和密码，即可运行该脚本实现在线监测和校园网自动登录；
-2、电脑上设置定时任务（每n秒执行该脚本），即可实现自动检测与登录；
+2、电脑上设置定时任务（每n秒执行该脚本），即可实现自动在线检测与登录；
 3、设置上述两个步骤后，即可保证校园网不会掉线超过n秒（当然，需满足：处于开机状态、校园网没欠费、网线或无线连接好、校园网网页端没有变更）。
 '''
 import re
