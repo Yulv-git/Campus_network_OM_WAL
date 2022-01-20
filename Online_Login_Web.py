@@ -6,8 +6,8 @@ Email: yulvchi@qq.com
 github: https://github.com/Yulv-git
 Date: 2021-02-08 11:36:34
 Motto: Entities should not be multiplied unnecessarily.
-LastEditors: Shuangchi He
-LastEditTime: 2021-05-29 12:24:44
+LastEditors: Zehui Lin
+LastEditTime: 2022-01-20 19:32:07
 FilePath: /Campus_network_OM_WAL/Online_Login_Web.py
 Description: 深大校园网  在线监测 & 网页版自动登录
 1、修改用户名和密码，即可运行该脚本实现在线监测和校园网自动登录；
@@ -18,11 +18,11 @@ import re
 import requests
 import datetime
 import argparse
-
+proxies = {"http":"", "https":""}
 
 def Online_Check(test_web="https://www.baidu.com"):
     try:
-        q = requests.get(test_web, timeout=5)
+        q = requests.get(test_web, timeout=5, proxies=proxies)
         STATUS = re.search(r'STATUS OK', q.text)
         if STATUS:
             print('\n【Check】 网络连接正常~')
@@ -40,7 +40,7 @@ def Web_Login(args):
         data = {"DDDDD": args.user_name, "upass": args.password, "R1": 0, "R6": 0, "para": 00, "0MKKey": 123456}
         try:
             print("【Login】{} 设备网络离线，正在登录...\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
-            result = requests.post(args.Web_URL, data=data)
+            result = requests.post(args.Web_URL, data=data, proxies=proxies)
             print("【Login】{} 校园网登录成功~\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
         except:
             print("【Login】{} 校园网登录失败，设备未连接网线或WIFI等！\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
