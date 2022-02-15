@@ -6,23 +6,23 @@ Email: yulvchi@qq.com
 github: https://github.com/Yulv-git
 Date: 2021-02-08 11:36:34
 Motto: Entities should not be multiplied unnecessarily.
-LastEditors: Zehui Lin
-LastEditTime: 2022-01-20 19:32:07
-FilePath: /Campus_network_OM_WAL/Online_Login_Web.py
+LastEditors: Shuangchi He
+LastEditTime: 2022-02-15 17:32:09
+FilePath: /Campus_network_OM_WAL/Python/Online_Login_Web.py
 Description: 深大校园网  在线监测 & 网页版自动登录
-1、修改用户名和密码，即可运行该脚本实现在线监测和校园网自动登录；
-2、电脑上设置定时任务（每n秒执行该脚本），即可实现自动在线检测与登录；
-3、设置上述两个步骤后，即可保证校园网不会掉线超过n秒（当然，需满足：处于开机状态、校园网没欠费、网线或无线连接好、校园网网页端没有变更）。
+    1、修改用户名和密码，即可运行该脚本实现在线监测和校园网自动登录；
+    2、电脑上设置定时任务（每n秒执行该脚本），即可实现自动在线检测与登录；
+    3、设置上述两个步骤后，即可保证校园网不会掉线超过n秒（当然，需满足：处于开机状态、校园网没欠费、网线或无线连接好、校园网网页端没有变更）。
 '''
 import re
 import requests
 import datetime
 import argparse
-proxies = {"http":"", "https":""}
+
 
 def Online_Check(test_web="https://www.baidu.com"):
     try:
-        q = requests.get(test_web, timeout=5, proxies=proxies)
+        q = requests.get(test_web, timeout=5, proxies=args.proxies)
         STATUS = re.search(r'STATUS OK', q.text)
         if STATUS:
             print('\n【Check】 网络连接正常~')
@@ -40,7 +40,7 @@ def Web_Login(args):
         data = {"DDDDD": args.user_name, "upass": args.password, "R1": 0, "R6": 0, "para": 00, "0MKKey": 123456}
         try:
             print("【Login】{} 设备网络离线，正在登录...\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
-            result = requests.post(args.Web_URL, data=data, proxies=proxies)
+            result = requests.post(args.Web_URL, data=data, proxies=args.proxies)
             print("【Login】{} 校园网登录成功~\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
         except:
             print("【Login】{} 校园网登录失败，设备未连接网线或WIFI等！\n".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
@@ -52,7 +52,8 @@ if __name__ == "__main__":
     parse = argparse.ArgumentParser(description='Online_Login_Web')
     parse.add_argument('--test_web', default="https://www.baidu.com")
     parse.add_argument('--Web_URL', default="https://drcom.szu.edu.cn/a70.htm")
-    parse.add_argument('--user_name', default=ahhhh)
+    parse.add_argument('--proxies', default={"http": "", "https": ""})
+    parse.add_argument('--user_name', default='ahhhh')
     parse.add_argument('--password', default='23333')
     args = parse.parse_args()
 
