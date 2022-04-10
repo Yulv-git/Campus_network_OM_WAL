@@ -4,7 +4,7 @@
  * @Date: 2021-02-08 11:36:34
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-04-10 23:32:14
+ * @LastEditTime: 2022-04-10 23:37:17
  * @FilePath: /Campus_network_OM_WAL/README.md
  * @Description: Campus network online monitoring and web version automatic login.
 -->
@@ -30,7 +30,7 @@
 
 ## 1.2. Linux定时任务，实现在线监测与自动登录
 
-- 在个人用户目录下，运行```crontab -e```命令定时任务配置文档，并进行编辑。
+- 在终端运行```crontab -e```命令定时任务配置文档，并进行编辑。
 - 输入```*/1 * * * * python3 ./Python/Online_Login_Web.py >> ./auto_login.log 2>&1```，并保存退出。即可实现在Linux开机状态下的自动在线监测和校园网登录。
 
 # 2. SZU校园网，JavaScript登录
